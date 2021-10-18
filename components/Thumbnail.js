@@ -1,10 +1,16 @@
+/* eslint-disable react/display-name */
+
 import Image from "next/image";
 import { ThumbUpIcon } from "@heroicons/react/outline";
+import { forwardRef } from "react";
 
-function Thumbnail({ result }) {
+const Thumbnail = forwardRef(({ result }, ref) => {
   const BASE_URL = "https://image.tmdb.org/t/p/original/";
   return (
-    <div className="p-2 trasition duration-200 ease-in transform sm:hover:scale-105 hover:z-50 group cursor-pointer">
+    <div
+      ref={ref}
+      className="p-2 trasition duration-200 ease-in transform sm:hover:scale-105 hover:z-50 group cursor-pointer"
+    >
       <Image
         layout="responsive"
         src={
@@ -30,6 +36,6 @@ function Thumbnail({ result }) {
       </div>
     </div>
   );
-}
+});
 
 export default Thumbnail;
